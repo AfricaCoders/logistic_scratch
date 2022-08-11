@@ -1,5 +1,4 @@
-import pandas as pd
-import numpy as np
+from packages.modules import *
 
 # Load dataset
 data = pd.read_csv("data.csv", delimiter=",")
@@ -9,8 +8,11 @@ data = pd.read_csv("data.csv", delimiter=",")
 data = data.drop(["Unnamed: 32"], axis=1)
 data["diagnosis"] = data["diagnosis"].replace("M", 0)
 data["diagnosis"] = data["diagnosis"].replace("B", 1)
-# print(data.info())
-# print(data.head())
+
+
+# Splitting datasets into training and testing set.
+X_train, Y_train , X_test, Y_test = train_test_split(data)
+
 
 
 
