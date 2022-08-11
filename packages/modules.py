@@ -1,3 +1,4 @@
+from turtle import shape
 import pandas as pd
 import numpy as np
 
@@ -24,3 +25,30 @@ def train_test_split(data):
     Y_test = Y_test.reshape(Y_test.shape[0], -1).T
     
     return X_train, Y_train , X_test, Y_test
+
+def sigmoid(z):
+
+    sigmoid = 1 / (1 + np.exp(-z))
+
+    return sigmoid
+
+def initialize_parameters(dims):
+
+    w = np.zeros((dims, 1))
+    b = 0
+
+    return w, b
+
+def propagate(W, b, X_train, Y_train):
+
+    # number of training examples
+    m = X_train.shape[1]
+    
+    # activation function
+    A = sigmoid(np.dot(W.T, X_train) + b)
+    
+    # cost function
+    cost  = -1/m *np.sum(np.dot(Y_train, np.log(A.T) + np.dot(1-Y_train, np.log(1 - A.T))))
+
+    dw = (1/m)*
+    db = 
